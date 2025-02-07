@@ -30,10 +30,4 @@ Tag | Description
 
 The installation manual is available [here](https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker).
 
-### Kubernetes
 
-If you plan to install the jitsi-meet stack on a Kubernetes cluster you can find tools and tutorials in the project [Jitsi on Kubernetes](https://github.com/jitsi-contrib/jitsi-kubernetes).
-
-## TODO
-
-* Builtin TURN server.
