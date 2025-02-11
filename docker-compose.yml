@@ -511,6 +511,8 @@ services:
         restart: ${RESTART_POLICY:-unless-stopped}
         volumes:
             - ${CONFIG}/jibri:/config:Z
+            - ./recordings:/config/recordings
+            - ./upload-to-s3.sh:/config/upload-to-s3.sh
         shm_size: '2gb'
         cap_add:
             - SYS_ADMIN
