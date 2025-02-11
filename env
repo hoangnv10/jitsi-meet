@@ -19,17 +19,17 @@
 CONFIG=~/.jitsi-meet-cfg
 
 # Exposed HTTP port (will redirect to HTTPS port)
-HTTP_PORT=8000
+HTTP_PORT=80
 
 # Exposed HTTPS port
-HTTPS_PORT=8443
+HTTPS_PORT=443
 
 # System time zone
-TZ=UTC
+TZ=Asia/Ho_Chi_Minh
 
 # Public URL for the web service (required)
 # Keep in mind that if you use a non-standard HTTPS port, it has to appear in the public URL
-#PUBLIC_URL=https://meet.example.com:${HTTPS_PORT}
+PUBLIC_URL=https://jitsilab.online
 
 # Media IP addresses to advertise by the JVB
 # This setting deprecates DOCKER_HOST_ADDRESS, and supports a comma separated list of IPs
@@ -58,13 +58,13 @@ TZ=UTC
 #
 
 # Enable Let's Encrypt certificate generation
-#ENABLE_LETSENCRYPT=1
+ENABLE_LETSENCRYPT=1
 
 # Domain for which to generate the certificate
-#LETSENCRYPT_DOMAIN=meet.example.com
+LETSENCRYPT_DOMAIN=jitsilab.online
 
 # E-Mail for receiving important account notifications (mandatory)
-#LETSENCRYPT_EMAIL=alice@atlanta.net
+LETSENCRYPT_EMAIL=hoang.manucians@gmail.com
 
 # Use the staging server (for avoiding rate limits while testing)
 #LETSENCRYPT_USE_STAGING=1
@@ -75,10 +75,21 @@ TZ=UTC
 #
 
 # Set the etherpad-lite URL in the docker local network (uncomment to enable)
-#ETHERPAD_URL_BASE=http://etherpad.meet.jitsi:9001
+ETHERPAD_URL_BASE=http://etherpad.meet.jitsi:9001
 
 # Set etherpad-lite public URL, including /p/ pad path fragment (uncomment to enable)
 #ETHERPAD_PUBLIC_URL=https://etherpad.my.domain/p/
+
+# Jibri Recording
+ENABLE_RECORDING=1
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=ap-southeast-1
+S3_BUCKET_NAME=jitsi-recordings-lab
+
+
+JIBRI_FINALIZE_RECORDING_SCRIPT_PATH=/config/upload-to-s3.sh
+
 
 
 #
@@ -114,7 +125,14 @@ TZ=UTC
 
 #
 # Authentication configuration (see handbook for details)
-#
+ENABLE_AUTH=1
+AUTH_TYPE=ldap
+LDAP_URL=ldaps://jitsildap.online:636
+LDAP_BASE=DC=jitsildap,DC=online
+LDAP_BINDDN=hoangnv@hoangnvvtdtgmail.onmicrosoft.com
+LDAP_BINDPW=Kakahoang101@
+LDAP_FILTER=(sAMAccountName=%u)
+LDAP_AUTH_METHOD=bind
 
 # Enable authentication (will ask for login and password to join the meeting)
 #ENABLE_AUTH=1
