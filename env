@@ -125,14 +125,6 @@ JIBRI_FINALIZE_RECORDING_SCRIPT_PATH=/config/upload-to-s3.sh
 
 #
 # Authentication configuration (see handbook for details)
-ENABLE_AUTH=1
-AUTH_TYPE=ldap
-LDAP_URL=ldaps://jitsildap.online:636
-LDAP_BASE=DC=jitsildap,DC=online
-LDAP_BINDDN=hoangnv@hoangnvvtdtgmail.onmicrosoft.com
-LDAP_BINDPW=Kakahoang101@
-LDAP_FILTER=(sAMAccountName=%u)
-LDAP_AUTH_METHOD=bind
 
 # Enable authentication (will ask for login and password to join the meeting)
 #ENABLE_AUTH=1
